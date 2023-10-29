@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+
+  postgres_goods:
+    image: postgres:13.3
+    container_name: postgres_goods
+    environment:
+      POSTGRES_DB: "mydb_goods"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_goods_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_goods_data:
