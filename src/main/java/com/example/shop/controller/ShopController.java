@@ -54,8 +54,6 @@ public class ShopController {
     @PostMapping("/create")
     public ResponseEntity<String> createOrder(@RequestBody Order order){
         System.out.println(order);
-        System.out.println("/////////////////////");
-
         return null;
     }
 }

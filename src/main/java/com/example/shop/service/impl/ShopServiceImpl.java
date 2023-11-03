@@ -59,8 +59,6 @@ public class ShopServiceImpl implements ShopService {
         }
     }
 
-
-
     @Override
     public void   check(List<Product> products) {
         List<Product> existGoods = getAll();
