@@ -77,9 +77,7 @@ public class ShopServiceImpl implements ShopService {
 //                    errorQuantity.add(existingProduct);
                 }
         }
-//        if (errorQuantity.size()>0){
-//            return errorQuantity;
-//        }
+
         updateGoods(existGoods);
         sendToAnotherService(checkedGoods, urlOrderService);
     }

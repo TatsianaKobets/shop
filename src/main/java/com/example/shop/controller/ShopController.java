@@ -30,43 +30,6 @@ public class ShopController {
     }
 
     private static final Logger logger = LoggerFactory.getLogger( ShopController.class );
-
-
-//
-//    @PostMapping("/goods")
-//    @Operation(
-//            summary = "Сохранить все товары",
-//            description = "Добавляет список товаров в базу данных",
-//            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-//                    content = @Content(
-//                            schema = @Schema(implementation = Product.class),
-//                            examples = {
-//                                    @ExampleObject(
-//                                            value = "[\n" +
-//                                                    "{\n" +
-//                                                    "  \"uuid\": \"f47ac10b-58cc-4372-a567-0e02b2c3d479\",\n" +
-//                                                    "  \"name\": \"Sample Product\",\n" +
-//                                                    "  \"price\": 100,\n" +
-//                                                    "  \"quantity\": 10\n" +
-//                                                    "}\n" +
-//                                                    "]"
-//                                    )
-//                            }
-//                    )
-//            )
-//    )
-//    @ApiResponse(responseCode = "201", description = "Products saved")
-//    @ApiResponse(responseCode = "500", description = "Error saving products")
-//    public ResponseEntity<String> saveAllGoods(@RequestBody List<Product> products) {
-//        try{
-//            service.saveAll(products);
-//            return new ResponseEntity<>("Products saved", HttpStatus.CREATED);
-//        } catch(Exception e){
-//            logger.error(e.getMessage());
-//            return new ResponseEntity<>("Error saving products", HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-//
     @GetMapping("/goods")
     @Operation(summary = "Получить все товары", description = "Возвращает список всех товаров")
     @ApiResponse(responseCode = "200", description = "Returned list of products")
@@ -87,63 +50,6 @@ public class ShopController {
             return new ResponseEntity<>( "Error saving products", HttpStatus.INTERNAL_SERVER_ERROR );
         }
     }
-
-
-
-//
-//    @GetMapping("/goods/{id}")
-//    @Operation(summary = "Получить товар по ID", description = "Возвращает товар по заданному UUID")
-//    @ApiResponse(responseCode = "200", description = "Returned the product")
-//    @ApiResponse(responseCode = "404", description = "Product not found")
-//    public ResponseEntity<Product> getGoodsById(@Parameter(description = "UUID товара") @PathVariable String id) {
-//        Optional<Product> product = service.findById( UUID.fromString(id));
-//        return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-//    }
-//
-//    @PutMapping("/goods")
-//    @Operation(
-//            summary = "Обновить товар",
-//            description = "Обновляет информацию о товаре в базе данных",
-//            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-//                    content = @Content(
-//                            schema = @Schema(implementation = Product.class),
-//                            examples = {
-//                                    @ExampleObject(
-//                                            value = "{\n" +
-//                                                    "  \"uuid\": \"f47ac10b-58cc-4372-a567-0e02b2c3d479\",\n" +
-//                                                    "  \"name\": \"Sample Product\",\n" +
-//                                                    "  \"price\": 100,\n" +
-//                                                    "  \"quantity\": 10\n" +
-//                                                    "}"
-//                                    )
-//                            }
-//                    )
-//            )
-//    )
-//    @ApiResponse(responseCode = "201", description = "Product updated")
-//    @ApiResponse(responseCode = "500", description = "Error updating product")
-//    public ResponseEntity<String> updateGoods(@RequestBody Product product) {
-//        try{
-//            service.save(product);
-//            return new ResponseEntity<>("Product updated", HttpStatus.CREATED);
-//        } catch(Exception e){
-//            logger.error(e.getMessage());
-//            return new ResponseEntity<>("Error updating product", HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-//
-//    @DeleteMapping("/goods/{id}")
-//    @Operation(summary = "Удалить товар по ID", description = "Удаляет товар по заданному UUID из базы данных")
-//    @ApiResponse(responseCode = "204", description = "Product deleted successfully")
-//    @ApiResponse(responseCode = "404", description = "Product not found")
-//    public ResponseEntity<Void> deleteGoodsById(@Parameter(description = "UUID товара для удаления") @PathVariable String id) {
-//        try{
-//            service.delete(UUID.fromString(id));
-//            return ResponseEntity.noContent().build();
-//        } catch(EntityNotFoundException e){
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 
     @PostMapping("/create")
     public ResponseEntity<String> createOrder(@RequestBody Order order){
