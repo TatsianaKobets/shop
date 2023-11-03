@@ -14,5 +14,6 @@ services:
     volumes:
       - postgres_goods_data:/var/lib/postgresql/data
 
+
 volumes:
   postgres_goods_data:

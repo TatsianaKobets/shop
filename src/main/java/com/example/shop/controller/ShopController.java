@@ -1,7 +1,8 @@
 package com.example.shop.controller;
 
+import com.example.shop.model.Order;
 import com.example.shop.model.Product;
-import com.example.shop.sevice.impl.ShopServiceImpl;
+import com.example.shop.service.impl.ShopServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -30,10 +31,7 @@ public class ShopController {
 
     private static final Logger logger = LoggerFactory.getLogger( ShopController.class );
 
-    //
-//    public ShopController(ShopService service) {
-//        this.service = service;
-//    }
+
 //
 //    @PostMapping("/goods")
 //    @Operation(
@@ -78,7 +76,7 @@ public class ShopController {
     }
 
     @PostMapping("/order")
-    @Operation(summary = "Получить заказ", description = "получает заказ")
+    @Operation(summary = "Отправить заказ", description = "Отправить заказ")
     @ApiResponse(responseCode = "200", description = "Returned list of products")
     public ResponseEntity<String> saveAllGoods(@RequestBody List<Product> products) {
         try{
@@ -146,5 +144,13 @@ public class ShopController {
 //            return ResponseEntity.notFound().build();
 //        }
 //    }
+
+    @PostMapping("/create")
+    public ResponseEntity<String> createOrder(@RequestBody Order order){
+        System.out.println(order);
+        System.out.println("/////////////////////");
+
+        return null;
+    }
 }
 
